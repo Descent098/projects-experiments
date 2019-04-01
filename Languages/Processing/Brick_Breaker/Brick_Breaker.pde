@@ -205,8 +205,11 @@ class Brick{
     && 
     ((y_position+ brickHeight) >= ballRadius))){
     health -= 1;
+    return true;
     }
-    
+    else{
+    return false;
+    }
     
     // Check right edge
     
