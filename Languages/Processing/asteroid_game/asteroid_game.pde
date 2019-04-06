@@ -61,9 +61,47 @@ class Obstacle{
     y_pos = int(random(height-size));
     } // end if statement
   } // end check_walls
+  
+  //TODO MAKE THIS FUNCTION DO SOMETHING
+  /**Returns true if player collides with obstacle*/
+  boolean on_collision(Player player){
+    if (player.x_pos == x_pos){
+    return true;
+    }
+    else{
+      return false;
+    }
+  
+  } // end of on_xollision
 } // end of obstacle class
 
-
+class Player{
+  // Instance Variables
+  int x_pos;
+  int y_pos;
+  int player_length;
+  int player_height;
+  
+  // Class Global Variables
+  String shape = "RECTANGLE";
+  
+  /**Primary Constructor*/
+  Player(int x, int y, int len, int hei){
+    x_pos = x;
+    y_pos = y;
+    player_length = len;
+    player_height = hei;
+  }// End of Constructor
+  
+  void display(){
+  rect(x_pos, y_pos, player_length, player_height);
+  
+  }
+  
+  
+  
+  
+} // End of Player
 
 void setup(){
   size (500,500);
