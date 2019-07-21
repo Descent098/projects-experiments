@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["get_name","Purpose: Reads user input from stdin and passes given parameter to print_name"],["main","The main function, runs the get_name function"]]});
