@@ -22,7 +22,7 @@ class coin:
 
 class coin_machine:
     def __init__(self, amount):
-        if type(amount) == float:
+        if not type(amount) == int:
             raise TypeError("Amount must be an integer")
         self.amount = amount
 
@@ -34,30 +34,27 @@ class coin_machine:
             for value in values:
                 number_of_coins = 0
                 if remaining >= value:
-                    number_of_coins = remaining//value
+                    number_of_coins = remaining // value
+                if remaining < 5: # Good old penny rounding
+                    remaining = 0
                 coin_count[value] = number_of_coins
                 remaining -= number_of_coins*value # Subtract from total
         print(f"Your change for {self.amount} is:")
         for current_coin in coin_count:
             print(f"{coin_count[current_coin]} {coin.coin_values[current_coin]}(s)")
 
-# Canadian Currency Values:
-def add_CAD():
-    """Adds coins for CAD values"""
+
+
+    
+
+if __name__ == "__main__":
+    # Canadian Currency Values:
     twonie = coin(200, "Twonie")
     loonie = coin(100, "Loonie")
     quarter = coin(25,"Quarter")
     dime = coin(10,"Dime")
     nickle = coin(5,"Nickle")
-
-if __name__ == "__main__":
-    currency_selected = False
-    while not currency_selected:
-        pass
-    add_CAD()
-    pass
-
-test = coin_machine(585)
-test.return_change(coin.enumerate_coin_values()[0])
+    test = coin_machine(eval(input("How much money did you put in (in cents): ")))
+    test.return_change(coin.enumerate_coin_values()[0])
 
 
