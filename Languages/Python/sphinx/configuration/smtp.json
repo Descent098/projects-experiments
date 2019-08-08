@@ -1,0 +1,6 @@
+{
+    "sending_email":"kieranw098@gmail.com",
+    "host": "smtp.gmail.com",
+    "port":"465",
+    "send_to":["kieran.wood1@ucalgary.ca","kieranw098@gmail.com"]
+}
