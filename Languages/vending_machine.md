@@ -66,3 +66,15 @@ Code refactoring, scope shift, and functionality with many ways to implement.
 6. Buy from remaining row/column pairs until they are all out.
 7. Try to buy from one of the row/column pairs.
 8. **Out of stock message should display and nothing should be taken from the balance**
+
+
+
+### Stage 5; Front end
+
+
+
+This stage is quite open ended, there are multiple ways to develop a front end. You can opt to do a native app if that is preferable in your language, or alternatively you can convert it to a web app and serve the vending machine through a server.
+
+
+
+Again because this is so open ended the only requirements and testing I can recommend is to make sure all the features from previous stages are available, and to end-to-end test all of the features you have previously built to make sure they still work
