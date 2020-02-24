@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ideas Plz</title>
+
+        <!--For Setting up PWA and service worker-->
+        <link rel="manifest" href="manifest.json" />
+
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
+            #maindiv {
+                margin:0;
+                position: relative;
+                min-height: 100%; 
+                background-color: #141414;
+                color: #f0f0f0;
+                
+            }
+            .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align:center;
+            }
+            #idea{
+                
+                font-size:500%;
+            }
+            #refresh{
+                height: 20%;
+                width: 20%;
+                align: center;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div id="maindiv" class="container">
+            <div class="center">
+            <h1 id="idea"></h1>
+            <img id="refresh" src="images/icons/refresh-solid.png" alt="refresh" onClick="window.location.reload();">
+            </div>
+        </div>
+    </body>
+
+</html>
+
+<script>
+    var text = document.getElementById("idea");
+
+    var ideas = ["Tweet Scraper", "Virtual Vending Machine", "Music Player App", "Stopwatch App", "Sudoku Solver",
+    "Password Manager", "Blog", "Text Adventure Game", "Snake", "Platformer", "RSS Feed Scraper", "Note Taking App",
+    "Employee Management System", "Drinking Game", "Todo List", "Contribute to an Open Source Project", "¯\_(ツ)_/¯",
+    "Survey System"];
+
+    value = Math.floor(Math.random() * ideas.length); // Random number from 0 - length of ideas array
+
+    console.log(value);
+
+    text.innerText = ideas[value];
+</script>
