@@ -1,0 +1,19 @@
+[package]
+name = "more_cargo"
+version = "0.1.0"
+authors = ["Kieran Wood <kieranw098@gmail.com>"]
+edition = "2018"
+license = "MIT"
+description = "A test crate to help learn about cargo packaging"
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+# Opt-level controls the number of optimizations made in effort to improve performance
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
+
+[dependencies]
