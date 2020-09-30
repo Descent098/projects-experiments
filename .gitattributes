@@ -1,3 +1,4 @@
 # Ignore files used across multiple languages
 *.html linguist-detectable=false
 *.css linguist-detectable=false
+*.scss linguist-detectable=false
