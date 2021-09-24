@@ -1,3 +1,5 @@
+**THIS IS VENDORED CODE, I MADE SOME MODIFICATIONS BUT IT LOOKS LIKE IT BROUGHT IN THE ENTIRE SOURCE REPO ORIGINAL CREDIT GOES TO GABDUBE**: [gabdube/native-windows-gui: A light windows GUI toolkit for rust (github.com)](https://github.com/gabdube/native-windows-gui)
+
 # Native Windows GUI
 
 Welcome to Native Windows GUI (aka NWG). The BEST (and only) rust library to develop truly native GUI applications on desktop for Microsoft Windows.

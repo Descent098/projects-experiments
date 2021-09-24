@@ -2,3 +2,6 @@
 *.html linguist-detectable=false
 *.css linguist-detectable=false
 *.scss linguist-detectable=false
+# Ignore accidental source repos
+Languages/Rust/native-windows-gui/* linguist-vendored
+Languages/Rust/native-windows-gui linguist-vendored
