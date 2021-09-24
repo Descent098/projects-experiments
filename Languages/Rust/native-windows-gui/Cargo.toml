@@ -1,0 +1,16 @@
+[workspace]
+
+members = [
+    "native-windows-gui",
+    "native-windows-derive",
+    "native-windows-canvas",
+    "native-windows-gui/examples/opengl_canvas",
+    "native-windows-gui/examples/embed_resources",
+    "native-windows-gui/examples/sync-draw",
+]
+
+[profile.dev]
+panic = 'abort'
+
+[profile.release]
+panic = 'abort'
