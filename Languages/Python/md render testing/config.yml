@@ -1,0 +1,13 @@
+name: Kieran Wood
+birthday: "1998-10-29"
+email: kieran@canadiancoding.ca
+phone: 403-827-2172
+title: Web Services Specialist
+company: University of Calgary
+address: 58 Mt Robson Close SE
+social:
+  github: descent098
+  twitch: canadiancoding
+  youtube: https://youtube.com/descent098
+  instagram: https://instagram.com/descent098
+include_examples: true
