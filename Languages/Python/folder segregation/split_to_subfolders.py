@@ -1,3 +1,11 @@
+"""Wrote this code to originally answer a since removed stack overflow question, full explanation can be found here: https://gist.github.com/Descent098/5a5950af2ef168006edde10b4dbf4b80
+
+Original question was:
+    I have a folder of 800 files. 
+    The folder should ideally have 40 sub-folders of 20 files each. 
+    I have the names of the 20 files each folder should have. 
+    Can anyhow I write a python script or any other alternative to segregate these large files into small folders as desired?
+"""
 import os       # Used to do path manipulations
 import shutil   # Used to copy files
 
@@ -43,5 +51,6 @@ def split_to_subdirectories(file_paths:list, amount_per_folder:int):
             shutil.copy(file_path, os.path.join(str(index), file_name))
 
 if __name__ == "__main__":
-    file_paths = get_abspath_files_in_directory("original_folder")
-    split_to_subdirectories(file_paths, 20)
+    number_of_files_per_folder:int = 20 # The number of files per folder
+    file_paths = get_abspath_files_in_directory("original_folder") # Get a list of the abspaths of files
+    split_to_subdirectories(file_paths, number_of_files_per_folder) # Take the list of file paths, and split them into sub directories of >= number_of_files_per_folder
