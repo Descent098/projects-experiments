@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Iframe Auto-Refresh Example</title>
+
+<style>
+    textarea{
+        font-size:xx-large;
+        background-color: #141414;
+        color: white;
+    }
+    button {
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+    h2{
+        color:white;
+    }
+</style>
+
+</head>
+<body style="background-color:black;">
+    <h2>Result</h2>
+
+    <div id="container" style="border-radius: 5px;min-height: 25vh;min-width: 100%;">
+
+        <iframe id="iframe" style="background-color: white;min-height:25vh;width:90%;" src="data:text/html;charset=utf-8,<h2>Enter some text and hit button</h2>"></iframe>
+    </div>
+
+    <h2>Add your HTML content</h2>
+    <textarea id="htmlContent" name="w3review" rows="15" cols="80" oninput="loadHTML()">Enter your HTML here</textarea>
+    <!-- 
+    <input type="text" id="htmlContent" style="min-width:80%;min-height: 40vh;"> -->
+    <br>
+</body>
+
+<script>
+    function loadHTML(){
+        container = document.getElementById("container");
+        var iframe = document.createElement('iframe');
+        var html = `<body>${document.getElementById("htmlContent").value}</body>`;
+        container.innerHTML = ""; // Clear container
+        iframe.style = "background-color: white; min-height:25vh;width:90%;";
+        iframe.src = 'data:text/html;charset=utf-8,' + html;
+        container.append(iframe);
+    }
+</script>
