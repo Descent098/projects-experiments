@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+        *{
+            box-sizing: border-box;
+            margin:0;
+            padding:0;
+        }
+        :root{
+            --bg-color: #9d8232;
+            --note-size: 25%;
+        }
+        html{
+            background-color: #e5d9d2;
+        }
+
+        .pink{
+            background: #ff6cda;
+        }
+
+        .yellow{
+            background: #fff36c;
+        }
+
+        .purple{
+            background: #C4C4F7;
+        }
+
+        .green{
+            background: #C1F6C1;
+        }
+
+        .rotate-right{
+            transform: rotate(15deg) translateY(calc(var(--note-size) /2)) translateX(calc(var(--note-size) /2));
+        }
+        .rotate-left{
+            transform: rotate(-15deg) translateY(calc(var(--note-size) /2)) ;
+        }
+
+        .post-it{
+            width: 75%;
+            height: var(--note-size);
+            margin:1.25rem; 
+            padding:1.25rem; 
+            padding-bottom: 50%;
+            filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.4));
+            overflow-y:hidden;
+        }
+        .post-it h3{
+            font-weight: 600;
+            font-size: 36px;
+            
+        }
+        .post-it p{
+            font-weight: 400;
+            font-size: 24px;
+        }
+        .post-it-container {
+
+            width: 100%;
+            height: 75vh;
+            margin: 1.5rem;
+
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+
+            font-family: system-ui, sans-serif;
+            background-image: radial-gradient(#493f2e 2px, transparent 2px), radial-gradient(#493f2e 2px, transparent 2px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+            background-color: var(--bg-color);
+
+            border: 14px solid #ca903d;
+            
+            filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.2));
+
+        }
+        body{
+            display:flex;
+        }
+            
+        .handwritten {
+            font-family: "Caveat", cursive;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body style="min-height:200vh; margin:0 auto;">
+    <div class="post-it-container">
+        <div class="post-it pink rotate-right">
+            <h3>Post title</h3>
+            <p class="handwritten" contenteditable>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+
+        <div class="post-it yellow rotate-left">
+            <h3>Title</h3>
+            <p class="handwritten" contenteditable>Provident earum assumenda corporis voluptates sed vel eaque?</p>
+        </div>
+
+        <div class="post-it purple rotate-right">
+            <h3>Title</h3>
+            <p class="handwritten" contenteditable>Alias facere dolor eius, soluta quis pariatur nostrum maiores quidem consequatur amet molestias modi.</p>
+        </div>
+
+        <div class="post-it green rotate-left">
+            <h3>Title</h3>
+            <p class="handwritten" contenteditable>Quod corrupti voluptate ab distinctio enim temporibus, ipsam maxime, vitae omnis minus eaque, consectetur accusantium cupiditate.</p>
+        </div>
+
+        <div class="post-it green rotate-right">
+            <h3>Title</h3>
+            <p class="handwritten" contenteditable>Quod corrupti voluptate ab distinctio enim temporibus, ipsam maxime, vitae omnis minus eaque, consectetur accusantium cupiditate.</p>
+        </div>
+        <div class="post-it purple rotate-left">
+            <h3>Title</h3>
+            <p class="handwritten" contenteditable>Alias facere dolor eius, soluta quis pariatur nostrum maiores quidem consequatur amet molestias modi.</p>
+        </div>
+    </div>
+</body>
+</html>
