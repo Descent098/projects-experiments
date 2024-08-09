@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css" integrity="sha512-F2E+YYE1gkt0T5TVajAslgDfTEUQKtlu4ralVq78ViNxhKXQLrgQLLie8u1tVdG2vWnB3ute4hcdbiBtvJQh0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+        *{
+            box-sizing: border-box;
+            margin:0;
+            padding:0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <!-- <img onclick="focusImage(this)" width="500px" src="https://images.unsplash.com/photo-1707274626870-c8a975b24fe8?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" srcset=""> -->
+    <img width="500px" src="https://images.unsplash.com/photo-1707274626870-c8a975b24fe8?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" srcset="">
+    
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js" integrity="sha512-jEJ0OA9fwz5wUn6rVfGhAXiiCSGrjYCwtQRUwI/wRGEuWRZxrnxoeDoNc+Pnhx8qwKVHs2BRQrVR9RE6T4UHBg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+
+    document.querySelectorAll("img").forEach( 
+    (image)=>{
+        image.addEventListener("click", focusImage)
+        }
+    )
+
+    function focusImage(){
+        if (this.classList.contains("focusedImage")){
+            document.exitFullscreen()
+        }else{
+            this.requestFullscreen()
+        }
+        
+        this.classList.toggle("focusedImage")
+
+    }
+</script>
+</html>
