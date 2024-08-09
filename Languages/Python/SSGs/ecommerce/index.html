@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce | Home</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding:0;
+            margin:0; 
+            font-family: system-ui, 'Helvetica Neue', sans-serif;
+        }
+        html{
+
+            background: #141414;
+            color: #fefefe;
+        }
+        nav{
+            display: flex;
+            height:10vh;
+        }
+        nav a{
+            flex-basis: calc(100%/3);
+            padding:1rem;
+            flex-grow: 1;
+            font-weight:900;
+            color: #f0f0f0;
+            text-decoration: none;
+        }
+        .row{
+            display: flex;
+            padding:1.3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .card{
+            flex-basis: 30%;
+            padding: 0rem 0rem 1rem 0rem;
+            border-radius: 1em;
+            flex-grow: 1;
+            color: #141414;
+            background:#fefefe;
+            min-height: 20vh;
+        }
+        .card img{
+            border-top-left-radius: 1em;
+            border-top-right-radius: 1em;
+            width:100%;
+            object-fit: cover;
+            height: 350px;
+        }
+        .card h4{
+            font-weight:900;
+        }
+        .content{
+            padding:1em;
+        }
+        .card a{
+            color:#141414;
+            text-decoration: none;
+        }
+        .card:hover{
+            scale: 102%;
+        }
+
+        .product{
+            padding: 0rem 0rem 1rem 0rem;
+            border-radius: 1em;
+            color: #141414;
+            background:#fefefe;
+            margin-top: 2rem;
+            min-height: 70vh;
+        }
+        .product img{
+            border-top-left-radius: 1em;
+            border-top-right-radius: 1em;
+            width:100%;
+            object-fit: cover;
+            height: 70vh;
+        }
+        .product h4{
+            font-weight:900;
+        }
+
+        .product .content{
+            padding:3rem;
+            font-size: 1.6rem;
+        }
+
+        .button{
+            padding:1.5rem;
+            background: #f0f0f0;
+            color: #141414;
+            border-radius: 1em;
+            margin: 1rem;
+            text-decoration: none;
+            font-weight: 900;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/index.html">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+
+    </nav>
+     
+    <main>
+        <h3>Products</h3>
+        <div class="row">
+            
+                
+                <div class="card">
+                    <a href="./products/Apple iPhone 13.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/iphone.jpg" alt="">
+                        <div class="content">
+                            <h4>Apple iPhone 13</h4>
+                            <small>$799</small>
+                            <p>A flagship smartphone with a powerful A15 Bionic chip and advanced cameras.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/Samsung Galaxy Watch 4.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/galaxy-watch.jpg" alt="">
+                        <div class="content">
+                            <h4>Samsung Galaxy Watch 4</h4>
+                            <small>$249</small>
+                            <p>Smartwatch with health tracking features, AMOLED display, and long battery life.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/Sony WH-1000XM4.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/sony-headphones.jpg" alt="">
+                        <div class="content">
+                            <h4>Sony WH-1000XM4</h4>
+                            <small>$349</small>
+                            <p>Noise-canceling headphones with exceptional sound quality and comfort.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/MacBook Pro 14.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/macbook.jpg" alt="">
+                        <div class="content">
+                            <h4>MacBook Pro 14</h4>
+                            <small>$1799</small>
+                            <p>High-performance laptop with a stunning Retina display and M1 Pro chip.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/Google Pixel 6 Pro.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/pixel-6-pro.jpg" alt="">
+                        <div class="content">
+                            <h4>Google Pixel 6 Pro</h4>
+                            <small>$899</small>
+                            <p>Android smartphone with a top-notch camera system and 5G connectivity.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/Bose QuietComfort Earbuds.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/quiet-comfort.jpg" alt="">
+                        <div class="content">
+                            <h4>Bose QuietComfort Earbuds</h4>
+                            <small>$279</small>
+                            <p>True wireless earbuds with active noise cancellation and excellent audio quality.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/Amazon Echo (4th Gen).html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/echo.jpg" alt="">
+                        <div class="content">
+                            <h4>Amazon Echo (4th Gen)</h4>
+                            <small>$99</small>
+                            <p>Smart speaker with Alexa voice assistant and immersive sound.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/Samsung QLED QN90A.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/qled.jpg" alt="">
+                        <div class="content">
+                            <h4>Samsung QLED QN90A</h4>
+                            <small>$1499</small>
+                            <p>4K QLED TV with Quantum HDR, Object Tracking Sound, and AI-powered processor.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/Nintendo Switch OLED.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/switch.jpg" alt="">
+                        <div class="content">
+                            <h4>Nintendo Switch OLED</h4>
+                            <small>$349</small>
+                            <p>Gaming console with a vibrant OLED display and versatile play modes.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/Sony PlayStation 5.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/playstation.jpg" alt="">
+                        <div class="content">
+                            <h4>Sony PlayStation 5</h4>
+                            <small>$499</small>
+                            <p>Next-gen gaming console with 4K graphics, ultra-fast SSD, and haptic feedback.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/Microsoft Surface Laptop 4.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/surface.jpg" alt="">
+                        <div class="content">
+                            <h4>Microsoft Surface Laptop 4</h4>
+                            <small>$999</small>
+                            <p>Sleek and powerful laptop with a touchscreen display and all-day battery life.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/Oculus Quest 2.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/quest.jpg" alt="">
+                        <div class="content">
+                            <h4>Oculus Quest 2</h4>
+                            <small>$299</small>
+                            <p>VR headset with high-resolution display, ergonomic design, and hand tracking.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/Canon EOS R6.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/eos.jpg" alt="">
+                        <div class="content">
+                            <h4>Canon EOS R6</h4>
+                            <small>$2399</small>
+                            <p>Mirrorless camera with 20.1MP sensor, 4K video recording, and in-body image stabilization.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/Razer BlackWidow V3.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/blackwidow.jpg" alt="">
+                        <div class="content">
+                            <h4>Razer BlackWidow V3</h4>
+                            <small>$139</small>
+                            <p>Mechanical gaming keyboard with customizable Chroma RGB lighting.</p>
+                        </div>
+                    </a>
+                </div>
+            
+                
+                <div class="card">
+                    <a href="./products/HP Spectre x360.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/spectre.jpg" alt="">
+                        <div class="content">
+                            <h4>HP Spectre x360</h4>
+                            <small>$1299</small>
+                            <p>Convertible laptop with a 4K OLED display, powerful performance, and sleek design.</p>
+                        </div>
+                    </a>
+                </div>
+            
+        </div>
+
+    </main>
+
+
+
+
+
+</body>
+</html>

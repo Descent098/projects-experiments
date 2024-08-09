@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow | {{config[name]}}</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding:0;
+            margin:0; 
+            font-family: system-ui, 'Helvetica Neue', sans-serif;
+        }
+        html{
+
+            background: #141414;
+            color: #fefefe;
+        }
+        main{
+            margin: 0 auto;
+            text-align: center;
+            padding:2rem;
+        }
+
+        .slide{
+            padding:2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        
+        {% for content in slide_content%}
+            <div class="slide">
+            {% if "\n" in content %}
+                <p>{{content | replace("\n", "<br>") | safe}}</p>
+            {% else %}
+                <h2>{{content}}</h2>
+            {% endif %}
+            </div>
+        {% endfor %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "base.jinja" %}
+{%block title%}Home{% endblock title%}
+
+
+{%block content%} 
+    <main>
+        <h3>Products</h3>
+        <div class="row">
+            {%for item in items%}
+                {% set current_item = items[item] %}
+                <div class="card">
+                    <a href="./products/{{item}}.html" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/{{current_item.image}}" alt="">
+                        <div class="content">
+                            <h4>{{item}}</h4>
+                            <small>${{current_item.price}}</small>
+                            <p>{{current_item.description}}</p>
+                        </div>
+                    </a>
+                </div>
+            {%endfor%}
+        </div>
+
+    </main>
+
+
+
+
+{% endblock content%}

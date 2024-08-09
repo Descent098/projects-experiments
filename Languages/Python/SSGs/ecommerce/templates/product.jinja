@@ -1,0 +1,17 @@
+{% extends "base.jinja" %}
+{%block title%} {{name}} {% endblock title%}
+
+
+{%block content%} 
+    <a class="button" href="../index.html">BACK TO PRODUCTS</a>
+    <div class="product">
+        <img src="../images/{{item.image}}" alt="">
+        <div class="content">
+            <h4>{{item.name}}</h4>
+            <small>${{item.price}}</small>
+            <p>{{item.description}}</p>
+        </div>
+    </div>
+
+
+{% endblock content%}
