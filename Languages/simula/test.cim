@@ -1,0 +1,81 @@
+BEGIN
+  CLASS Node;
+    REF(Node) prev;
+    REF(Node) ARRAY children;
+    TEXT value;
+
+    PROCEDURE INIT(v); TEXT v;
+    BEGIN
+      value := v;
+      prev := NONE;
+      children := NEW REF(Node) ARRAY(1:10); ! Assuming max 10 children for simplicity
+    END INIT;
+
+    PROCEDURE AddChild(childNode); REF(Node) childNode;
+    BEGIN
+      INTEGER i;
+      FOR i := LWB(children, 1) TO UPB(children, 1) DO
+        IF children(i) = NONE THEN
+        BEGIN
+          children(i) := childNode;
+          childNode.prev := THIS Node;
+          RETURN;
+        END;
+    END AddChild;
+
+    PROCEDURE PrintChildren;
+    BEGIN
+      INTEGER i;
+      FOR i := LWB(children, 1) TO UPB(children, 1) DO
+        IF children(i) /= NONE THEN
+        BEGIN
+          OutText(children(i).value);
+          OutImage;
+        END;
+    END PrintChildren;
+  END;
+
+  ! Example usage
+  REF(Node) continentNode, countryNode1, countryNode2, cityNode1, cityNode2;
+
+  continentNode :- NEW Node;
+  continentNode.INIT("North America");
+
+  countryNode1 :- NEW Node;
+  countryNode1.INIT("Canada");
+
+  countryNode2 :- NEW Node;
+  countryNode2.INIT("United States");
+
+  ! Adding children to continentNode
+  continentNode.AddChild(countryNode1);
+  continentNode.AddChild(countryNode2);
+
+
+  cityNode1 :- NEW Node;
+  cityNode1.INIT("Calgary");
+
+  cityNode2 :- NEW Node;
+  cityNode2.INIT("Memphis");
+
+  ! Adding children to continentNode
+  countryNode1.AddChild(cityNode1);
+  countryNode.AddChild(cityNode2);
+
+
+  ! Print the values to verify
+  OutText("Parent Node Value: ");
+  OutText(continentNode.value);
+  OutImage;
+
+  OutText("Children of North America Node: ");
+  continentNode.PrintChildren;
+
+  OutText("Children of Canada Node: ");
+  countryNode1.PrintChildren;
+
+  OutText("Children of United States Node: ");
+  countryNode2.PrintChildren;
+
+
+END;

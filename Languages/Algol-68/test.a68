@@ -1,0 +1,29 @@
+BEGIN
+  # A function that takes in a name and prints "Hello <name>"#
+  PROC greet = (STRING name) VOID:
+  BEGIN
+    print(( "Hello ", name, newline ))
+  END;
+
+  # A function that takes in a list of strings and concatenates the strings with spaces #
+  PROC concat_with_spaces = (REF [] STRING strings) STRING:
+  BEGIN
+    STRING result := "";
+    FOR i FROM LWB strings TO UPB strings DO
+        result := result + strings[i];
+        IF i < UPB strings THEN
+          result := result + " "
+        FI
+    OD;
+    result # Return result #
+  END;
+
+  # Test greet() #
+  STRING name := "Kieran";
+  greet(name);
+
+  # Test concat_with_spaces() #
+  [2] STRING array := ("Hello", "world!");
+  STRING concatenated := concat_with_spaces(array);
+  print((concatenated, newline));
+END
