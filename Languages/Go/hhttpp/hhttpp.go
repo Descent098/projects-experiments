@@ -8,6 +8,7 @@ import (
 )
 
 func stringifyHeaders(headers map[string]string) string {
+	// Takes in a header mapping and returns an HTTP compliant stringified result
 	if len(headers) > 0 {
 		var buffer strings.Builder
 		for key, value := range headers {
