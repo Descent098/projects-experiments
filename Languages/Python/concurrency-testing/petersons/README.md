@@ -1,0 +1,3 @@
+# Peterson's algorithm
+
+Peterson's algorithm is a software-based solution to the critical section problem (mutual exclusion). There are 2 variants, the 2 process and n process. 2 process synchronizes 2 processes, n process generalizes this to n processes (any amount). For each variant I also added the equivalent mutex-version of the same code, to show how much simpler hardware-based synchronization primitives are. 
