@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: sans-serif;
+            margin: 0;
+            padding:0;
+        }
+        html{
+            background-color: #2d2d2d;
+            color:#ccc;
+            height:100vh;
+        }
+        body{
+            overflow: hidden;
+            height:100vh;
+        }
+        #code-editor{
+            display: flex;
+        }
+        #code-editor div{
+            flex-basis: 50%;
+            flex-grow: 1;
+        }
+        iframe{
+            width:50%;
+            background:white;
+            height:100vh;
+        }
+        /* Style the tab */
+        .tabs {
+            overflow: hidden;
+            background-color: #1e1e1e;
+            color:#ccc;
+            min-height:5vh;
+        }
+        
+        /* Style the buttons that are used to open the tab content */
+        .tabs button {
+            background-color: inherit;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            background-color: #1e1e1e;
+            color:#ccc;
+        }
+        
+        /* Change background color of buttons on hover */
+        .tabs button:hover {
+            background-color: #ddd !important;
+            color:#1e1e1e;
+        }
+        
+        /* Create an active/current tablink class */
+        .tabs button[data-active="true"] {
+            background-color: #3f3f3f;
+        }
+        .monaco-editor{
+            min-width: 100%;
+            min-height: 100%;
+            padding-top:1em;
+        }
+        #console{
+            width:100%;
+            min-height:30vh;
+            background-color: #1f1f1f;
+        }
+        #code{
+            min-height:90vh; 
+            width:100%
+        }
+
+    </style>
+</head>
+<body>
+    
+        <div id="code-editor">
+            <div id="code">
+                <div class="tabs">
+                    <button data-active="true" class="tablinks"onclick="changeEditorLanguage('html', this)">HTML</button>
+                    <button class="tablinks" onclick="changeEditorLanguage('css', this)">CSS</button>
+                    <button class="tablinks" onclick="changeEditorLanguage('js', this)">Javascript</button>
+                    <button class="tablinks" onclick="updateIframe()">Reload</button>
+                </div>
+
+            </div>
+            <iframe id="preview" srcdoc="<html style='background-color:#141414'><head><style id='css'></style><script id='jscontent'></script></head><body></body></html>" frameborder="0"></iframe>
+        </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs/loader.min.js"></script>
+    <script src="https://unpkg.com/emmet-monaco-es/dist/emmet-monaco.min.js"></script>
+    <script>
+    // Setup Monaco
+    require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs',automaticLayout: true }});
+    require(["vs/editor/editor.main"], () => {
+
+    emmetMonaco.emmetHTML(monaco)
+
+    /// Setup Models (each editor view)
+
+    defaultCSS = `*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-family: sans-serif;
+    background:#141414;
+    color:#ccc;
+}
+
+h1{
+    text-align: center;
+    font-size: 3em;
+    text-decoration: #ccc wavy  underline;
+}
+
+h1,h2,h3{
+    padding: 1rem;
+}
+
+.col h2{
+    padding-left:0;
+}
+
+.container{
+    display: flex;
+    gap: 1.5rem;
+    padding:1rem;
+}
+
+.col{
+    background: #1e1e1e;
+    padding:2rem;
+    flex-basis: 33%;
+    border-radius: 1em;
+}`
+    defaultHTML = `
+    <h1>Hello World</h1>
+
+<div class="container">
+    <div class="col">
+        <h2>Title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum sapiente id voluptate voluptates provident adipisci quaerat a optio. Modi consectetur itaque magnam commodi inventore hic similique dicta optio recusandae dignissimos!</p>
+    </div>
+    <div class="col">
+        <h2>Title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum sapiente id voluptate voluptates provident adipisci quaerat a optio. Modi consectetur itaque magnam commodi inventore hic similique dicta optio recusandae dignissimos!</p>
+    </div>
+    <div class="col">
+        <h2>Title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum sapiente id voluptate voluptates provident adipisci quaerat a optio. Modi consectetur itaque magnam commodi inventore hic similique dicta optio recusandae dignissimos!</p>
+    </div>
+</div>`
+    window.htmlModel = monaco.editor.createModel(value= defaultHTML,language= 'html')
+    window.cssModel = monaco.editor.createModel(value= defaultCSS,language= 'css')
+    window.jsModel = monaco.editor.createModel(value= `console.log("hello")`,language= 'javascript')
+    updateIframe()
+    /// Set models to update iframe when content is changed
+    // TODO: make changes only appear on whichever language was updated
+    window.htmlModel.onDidChangeContent((event) => {updateIframe();});
+    window.cssModel.onDidChangeContent((event) => {updateIframe();});
+    window.jsModel.onDidChangeContent((event) => {updateIframe();});
+
+    /// Create the global editor
+    window.mainEditor = monaco.editor.create(document.getElementById('code'), {
+        theme: 'vs-dark',
+        fontSize: 24,
+        model:window.htmlModel,
+        
+        })
+
+    /// Refresh every 30 seconds as a fallback
+    setInterval(updateIframe, 30000);
+})
+
+    function changeEditorLanguage(lang, button){
+        // Switches between the editor language
+        [... document.querySelectorAll(".tablinks")].forEach(function(tab){tab.dataset.active = "false"})
+        button.dataset.active = "true"
+
+        switch(lang) {
+            case 'html':
+                window.mainEditor.setModel( window.htmlModel)
+            break;
+            case 'css':
+                window.mainEditor.setModel( window.cssModel)
+            break;
+            case 'js':
+                window.mainEditor.setModel( window.jsModel)
+            break;
+        }
+    }
+
+    function updateIframe(){
+        // Takes content from each model and updates preview iframe with it
+        htmlContent = window.htmlModel.getValue()
+        cssContent = window.cssModel.getValue()
+        jsContent = window.jsModel.getValue()
+        document.getElementById("preview").contentDocument.getElementById("css").innerHTML = cssContent
+        document.getElementById("preview").contentDocument.getElementById("jscontent").innerHTML = jsContent
+        document.getElementById("preview").contentDocument.body.innerHTML = htmlContent
+    }
+
+    // Listen for messages from iframe and redirect to console element
+    document.getElementById("preview").contentWindow.onmessage = function(response) {
+        console.log(response.data.message)
+        document.getElementById("console").innerText += response.data.message
+    };
+    </script>
+    
+</body>
+</html>
