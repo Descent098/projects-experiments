@@ -1,9 +1,9 @@
 from threading import Lock
 from concurrent.futures import ThreadPoolExecutor
 
-n = 12  # Number of processes (threads)
-flag = [False] * n  # Flags for each process
-turn = [-1] * (n - 1)  # Turn array for Peterson's n-process hierarchy
+number_of_processes = 30  # Number of processes (threads)
+flag = [False] * number_of_processes  # Flags for each process
+turn = [-1] * (number_of_processes - 1)  # Turn array for Peterson's n-process hierarchy
 counter = 0  # Shared counter
 mutex = Lock()
 
@@ -32,8 +32,8 @@ def run_thread(process_id: int):
 if __name__ == "__main__":
     import time
     t1 = time.time()
-    with ThreadPoolExecutor(max_workers=n) as executor:
-        for i in range(n):
+    with ThreadPoolExecutor(max_workers=number_of_processes) as executor:
+        for i in range(number_of_processes):
             executor.submit(run_thread, i)
     t2 = time.time()
     

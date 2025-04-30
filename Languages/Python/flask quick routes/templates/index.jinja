@@ -1,0 +1,12 @@
+{% extends "base.jinja" %}
+
+{% block main %}
+    <h1>HEllo {{user.name}}</h1>
+
+    <form action="/form_submit" method="post">
+        <input type="date" name="date" id="date">
+        <input type="email" name="email" id="email">
+        <button type="submit">Submit</button>
+
+    </form>
+{%endblock main%}

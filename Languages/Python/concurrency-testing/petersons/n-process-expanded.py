@@ -2,7 +2,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 
 # Number of processes
-number_of_processes = 12
+number_of_processes = 30
 TIMES_TO_RUN_CRITICAL_SECTION = 10
 
 # Shared variables
