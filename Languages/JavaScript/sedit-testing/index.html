@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        :root{
+            /*Astro*/
+            --background-color: #4A306D;
+            --primary-color: #A167A5;
+            --secondary-color: #D3BCCC;
+            --tertiary-color: #6ed9f1;
+            --accent-color: #0E273C;
+
+            /*Earthy Theme*/
+            --background-color: #002500;
+            --primary-color: #929982;
+            --secondary-color: #EDCBB1;
+            --tertiary-color: #b77024;
+            --accent-color: #B7245C;
+
+        }
+        html{
+            background-color: var(--background-color);
+            color: var(--primary-color)
+        }
+    </style>
+</head>
+<body>
+    <hero-cta></hero-cta>
+</body>
+<script type="module" src="engine/main.js"></script>
+<script src="engine/settingsPanel.js"></script>
+<script type="module" src="components/hero.js"></script>
+<script>
+    addEventListener("load", (event) => {
+        window.initializeEngine()
+    })
+
+    
+</script>
+</html>
