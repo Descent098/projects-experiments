@@ -1,0 +1,10 @@
+[project]
+name = "pdfs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pymupdf>=1.26.6",
+    "pypub3>=2.0.9",
+]
