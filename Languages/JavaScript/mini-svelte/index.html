@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+	import {effect, get, state, set, derived} from "./signals.js"
+	const appDiv = document.createElement("div")
+	const textEl = document.createElement("p")
+	const randomEl = document.createElement("p")
+    const buttonEl = document.createElement("button")
+	let count = state(0)
+    let rando = derived(()=>Math.random()*get(count))
+	
+	// Emulating to OnMount
+    buttonEl.onclick = ()=>{set(count, get(count)+1)}
+    buttonEl.textContent = "Increase Count"
+    appDiv.appendChild(textEl)
+    appDiv.appendChild(randomEl)
+    appDiv.appendChild(buttonEl)
+    document.body.appendChild(appDiv)
+    
+    effect(()=>textEl.textContent = get(count))
+    effect(()=>randomEl.textContent = get(rando))
+
+</script>
+    
+</body>
+</html>
