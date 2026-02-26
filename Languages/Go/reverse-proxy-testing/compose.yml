@@ -1,0 +1,23 @@
+services:
+  pyth:
+    image: python:latest
+    working_dir: /app
+    volumes:
+      - ./test-service:/app
+    networks:
+      - proxy-net
+    entrypoint: ["sh", "-c", "pip install flask && python main.py"]
+
+  proxy:
+    image: golang:1.25
+    working_dir: /app
+    volumes:
+      - ./proxy:/app
+    ports:
+      - "6787:8080"
+    networks:
+      - proxy-net
+    entrypoint: ["sh", "-c", "go run main.go"]
+
+networks:
+  proxy-net:
